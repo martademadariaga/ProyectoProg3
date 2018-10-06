@@ -9,16 +9,9 @@ import java.util.Iterator;
 import javax.swing.*;
 
 
-public class Ventana {
+public class GestionTienda {
 	public static ArrayList<Gafas> gafasDisp = new ArrayList<Gafas>();
-	public Container cp;
-	public JMenu menu;
-
-
-	public Ventana() {
-
-
-	}
+	public ArrayList<Gafas> pedido = new ArrayList<Gafas>();
 
 	public static void crearGafas(String s) {
 		int contador = 0;
@@ -54,7 +47,7 @@ public class Ventana {
 	}
 
 	public static void main(String[] args) {
-		new Ventana();
+		
 		crearGafas("archivogafas.txt");
 		for (Gafas gafa : gafasDisp) {
 			System.out.println(	gafa.toString());
