@@ -13,6 +13,8 @@ import java.awt.event.MouseMotionListener;
 import java.io.File;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class VentanaGafa extends JFrame{
@@ -28,6 +30,9 @@ public class VentanaGafa extends JFrame{
 	public JPanel arribad;
 	public JPanel abajoi;
 	public JButton browse;
+	public JSlider zoom;
+	public JSlider rotar;
+	public JTextField texto;
 
 	public VentanaGafa(Gafas s) {
 		cp = this.getContentPane();
@@ -56,10 +61,26 @@ public class VentanaGafa extends JFrame{
 		
 		gafas = s.label;
 		arriba.add(s.label);
-		gafas.setBounds(780, 100,200,100);
-		moverGafas(gafas);
+		gafas.setLocation(690, 50);
+		moverGafas(gafas, arriba);
 	
-		
+
+
+		gafas.addMouseListener(new MouseListener()
+		{
+		public void mouseClicked(MouseEvent arg0) {
+		}
+		public void mouseEntered(MouseEvent arg0) {
+		}
+		public void mouseExited(MouseEvent arg0) {
+		}
+		public void mousePressed(MouseEvent arg0) {
+			raton = true;
+		}
+		public void mouseReleased(MouseEvent arg0) {
+			raton = false;
+		}
+		});
 		
 		
 		
@@ -67,26 +88,49 @@ public class VentanaGafa extends JFrame{
 		
 				arribad = new JPanel();
 				arribad.setBounds(640,0,300,480);
-				arribad.setBackground(Color.red);
+				arribad.setBackground(Color.white);
 				arriba.add(arribad);
 				
 
+				zoom = new JSlider();
+				zoom.setMaximum(300);
+				zoom.setMinimum(25);
+				zoom.setValue(100);
+				arribad.add(zoom);
+				zoom.setLocation(690, 50);
+				zoom.addChangeListener(new ChangeListener() {
 
-				arriba.addMouseListener(new MouseListener()
-				{
-				public void mouseClicked(MouseEvent arg0) {
-				}
-				public void mouseEntered(MouseEvent arg0) {
-				}
-				public void mouseExited(MouseEvent arg0) {
-				}
-				public void mousePressed(MouseEvent arg0) {
-					raton = true;
-				}
-				public void mouseReleased(MouseEvent arg0) {
-					raton = false;
-				}
+					@Override
+					public void stateChanged(ChangeEvent e) {
+						// TODO Auto-generated method stub
+					
+					
+					gafas.setSize(200*zoom.getValue()/100, 100*zoom.getValue()/100);
+					}
+					
 				});
+				
+				rotar = new JSlider();
+				rotar.setMaximum(180);
+				rotar.setMinimum(-180);
+				rotar.setValue(0);
+				arribad.add(rotar);
+				rotar.setLocation(690, 150);
+				rotar.addChangeListener(new ChangeListener() {
+
+					@Override
+					public void stateChanged(ChangeEvent e) {
+						// TODO Auto-generated method stub
+					
+					
+					gafas.setRotacion(Math.toRadians(rotar.getValue()));
+					
+					}
+					
+				});
+				
+				
+
 		
 		
 		
@@ -170,8 +214,10 @@ public class VentanaGafa extends JFrame{
 		arriba.setSize(w+300,h);
 		abajo.setBounds(0,h,w, 120);
 		arribad.setBounds(w,0,300,h);
+		gafas.setLocation(w+50, 50);
 		this.setSize(w+300,h+100);
 		return image;
+		
 	}
 
 
@@ -185,77 +231,63 @@ public class VentanaGafa extends JFrame{
 	
 	// mover las gafaas
 	
-	public static void moverGafas(JLabelGraficoAjustado l) {
+	public static void moverGafas(JLabelGraficoAjustado l, JPanel arriba) {
 		
 		
 		
 
 		Thread t = new Thread() {
-			public void run() {
-				
-				
-
-				do {
-					Point punto=MouseInfo.getPointerInfo().getLocation();
-					int x=punto.x;
-					int y=punto.y;
-					
-					System.out.println(raton);
-					
-					if(raton) {
-					l.setBounds(x,y,200,100);
-					}
-			
-			
-			
-			
-			
 //			public void run() {
-//						Point punto=MouseInfo.getPointerInfo().getLocation();
-//						int xa=punto.x;
-//						int ya=punto.y;
-//						int x=0;
-//						int y=0;
-//						
-//			
-//
-//					do {
-//						Point punto2=MouseInfo.getPointerInfo().getLocation();
-//						int xb=punto.x;
-//						int yb=punto.y;
-//						
-//						System.out.println(raton);
-//						
-//
 //				
-//						if(xa<xb) {
-//							x =l.getX()-(xb-xa);
-//							if(ya<yb) {
-//								 y =l.getY()-(yb-ya);
-//							}else if(ya>yb) {
-//								 y =l.getY()+(ya-yb);
-//							}
-//							
-//							l.setBounds(x, y, 200, 100);
-//						}else if(xa>xb) {
-//							x =l.getX()+(xa-xb);
-//							
-//							if(ya<yb) {
-//								y =l.getY()-(yb-ya);
-//							}else if(ya>yb) {
-//								y =l.getY()+(ya-yb);
-//							}
-//							l.setBounds(x, y, 200, 100);
-//						}
-//						
+//				
+//
+//				do {
+//					Point punto=MouseInfo.getPointerInfo().getLocation();
+//					int x=punto.x;
+//					int y=punto.y;
 //					
-//						
-//						Point punto3=MouseInfo.getPointerInfo().getLocation();
-//						xa=punto.x;
-//						ya=punto.y;
-//						
+//					System.out.println(raton);
+//					
+//					if(raton) {
+//					l.setBounds(x,y,200,100);
+//					}
+//			
+//			
+			
+			
+			
+			public void run() {
 						
+						int xa=0;
+						int ya=0;
+						int x=0;
+						int y=0;
+						
+			
+
+					do {
+						Point punto2=MouseInfo.getPointerInfo().getLocation();
+						int xb=punto2.x;
+						int yb=punto2.y;
+						
+					//	System.out.println(xa+"  "+xb);
+						
+
 							
+							x =l.getX()+(xb-xa);
+							y =l.getY()+(yb-ya);
+						
+							if(raton && x<= (arriba.getWidth()-100) && y>=-50
+									&& x>= -100 && y<= (arriba.getHeight())-50) {
+							l.setLocation(x, y);
+							}
+						
+					
+						
+						Point punto3=MouseInfo.getPointerInfo().getLocation();
+						xa=punto3.x;
+						ya=punto3.y;
+						
 							
 						try {
 
@@ -264,7 +296,7 @@ public class VentanaGafa extends JFrame{
 
 						}
 
-					} while (1!=2 );
+					} while (this.isAlive() );
 
 
 				}
