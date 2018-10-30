@@ -4,13 +4,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class VentanaWeb extends JFrame {
 	public Container cp;
-	public JLabel p1;
-	public JLabel p2;
-	public JLabel p3;
-	public JButton p4,reg, ini;
+	public JLabel p1,p2,p3, labelu, labelc;
+	public JButton p4,reg,ini,siguiente, continuar;
+	public JTextField usu;
+	public JPasswordField cont;
+	public static JPanel regpan, webpan, inicio;
+	public static JScrollPane panelgafas;
+	public static JTable tablagafas;
+	
 	
 	public VentanaWeb() {
 		// especificaciones
@@ -23,12 +28,24 @@ public class VentanaWeb extends JFrame {
 		cp = this.getContentPane();
 		cp.setLayout(null);
 		
+		//JPanel inicio y web
+		
+		inicio= new JPanel();
+		cp.add(inicio);
+		inicio.setBounds( 0, 0,this.getWidth(), this.getHeight());
+		inicio.setLayout(null);
+		
+		webpan= new JPanel();
+		cp.add(webpan);
+		webpan.setBounds( 0, 0,this.getWidth(), this.getHeight());
+		webpan.setLayout(null);
+		
 		// botones registro
 		
 		p4= new JButton("");
-		p4.setIcon(new ImageIcon("empezar.png"));
+		p4.setIcon(new ImageIcon("empezar.jpg"));
 		p4.setBounds(150, 150, 500, 200);
-		cp.add(p4);
+		inicio.add(p4);
 		
 		p4.addActionListener(new ActionListener() {
 			@Override
@@ -43,24 +60,92 @@ public class VentanaWeb extends JFrame {
 		
 		// registro o inicio de sesion
 		reg= new JButton("");
-		reg.setIcon(new ImageIcon("empezar.png"));
+		reg.setIcon(new ImageIcon("reg.jpg"));
 		reg.setBounds(150, 150, 500, 100);
-		cp.add(reg);
-		ini= new JButton("");
-		ini.setIcon(new ImageIcon("empezar.png"));
-		ini.setBounds(150, 225, 500, 100);
-		cp.add(ini);
+		inicio.add(reg);
+		reg.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				reg.setVisible(false);
+				ini.setVisible(false); 
+				registro();
+
+				
+			}
+			
+		});
 		
+		
+		ini= new JButton("");
+		ini.setIcon(new ImageIcon("ini.jpg"));
+		ini.setBounds(150, 250, 500, 100);
+		inicio.add(ini);
+		
+		ini.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				reg.setVisible(false);
+				ini.setVisible(false); 
+				iniciosesion();
+
+				
+			}
+			
+		});
+		
+		
+		
+		// panel de registro regpan
+		regpan= new JPanel();
+		inicio.add(regpan);
+		regpan.setBackground(Color.WHITE);
+		regpan.setBounds(150,150 , 500, 200);
+		regpan.setLayout(null);
+		
+		labelu= new JLabel("nombre de usuario");
+		labelu.setBounds(0,50,200,30);
+		labelc= new JLabel("contraseña");
+		labelc.setBounds(0,100,200,30);
+		usu = new JTextField();
+		usu.setBounds(200,50,200,30);
+		cont = new JPasswordField();
+		cont.setBounds(200,100,200,30);
+		
+		continuar = new JButton("continuar");
+		continuar.setBounds(150,150,200,30);
+		
+		regpan.add(labelu);
+		regpan.add(labelc);
+		regpan.add(usu);
+		regpan.add(cont);
+		regpan.add(continuar);
+		
+		
+		
+		continuar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				inicio.removeAll();
+				inicio.setVisible(false);
+				crearweb();
+				
+			}
+			
+		});
 		
 		
 		// fotos del inicio
 		p1 =new JLabel();
-		cp.add(p1);
+		inicio.add(p1);
 		p1.setBounds(0,0,this.getWidth(), this.getHeight());
 		p2= new JLabel();
-		cp.add(p2);
+		inicio.add(p2);
 		p3= new JLabel();
-		cp.add(p3);
+		inicio.add(p3);
 		transicion(p1,p2,p3,this);
 		
 		
@@ -140,7 +225,35 @@ public class VentanaWeb extends JFrame {
 		};
 		t.start();
 	}
-
+	public static void registro() {
+		
+		
+		
+	}
+	public static void iniciosesion() {
+		
+		
+		
+	}
+	
+	public static void crearweb() {
+		tablagafas = new JTable();
+		panelgafas = new JScrollPane(tablagafas);
+		tablagafas.setModel(new DefaultTableModel(10,3));
+		JLabelGraficoAjustado label1 = new JLabelGraficoAjustado("gafas.png", 200,100);
+		JLabelGraficoAjustado[][] tab = new JLabelGraficoAjustado[2][3]  {
+			label1,label1,label1,
+			label1,label1,label1
+		}
+		
+		tablagafas.add(,label1);
+		panelgafas.getViewport().add(tablagafas);
+		webpan.add(tablagafas);
+		tablagafas.setBounds(500,0,1000,webpan.getHeight());
+		tablagafas.setRowHeight(200);
+		
+	}
+	
 	
 
 }
