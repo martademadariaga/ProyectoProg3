@@ -1,5 +1,7 @@
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.EventQueue;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,7 +14,7 @@ public class VentanaWeb extends JFrame {
 	public JButton p4,reg,ini,siguiente, continuar;
 	public JTextField usu;
 	public JPasswordField cont;
-	public static JPanel regpan, webpan, inicio;
+	public static JPanel regpan, webpan, inicio, tablagaf;
 	public static JScrollPane panelgafas;
 	public static JTable tablagafas;
 	
@@ -237,20 +239,36 @@ public class VentanaWeb extends JFrame {
 	}
 	
 	public static void crearweb() {
-		tablagafas = new JTable();
-		panelgafas = new JScrollPane(tablagafas);
-		tablagafas.setModel(new DefaultTableModel(10,3));
-		JLabelGraficoAjustado label1 = new JLabelGraficoAjustado("gafas.png", 200,100);
-		JLabelGraficoAjustado[][] tab = new JLabelGraficoAjustado[2][3]  {
-			label1,label1,label1,
-			label1,label1,label1
-		}
 		
-		tablagafas.add(,label1);
-		panelgafas.getViewport().add(tablagafas);
-		webpan.add(tablagafas);
-		tablagafas.setBounds(500,0,1000,webpan.getHeight());
-		tablagafas.setRowHeight(200);
+//		GestionTienda.crearGafas("archivogafas.txt");
+//		tablagafas = new JTable();
+//		panelgafas = new JScrollPane(tablagafas);
+//		tablagafas.setModel(new DefaultTableModel(10,3));
+//		int cont= 0;
+//		Gafas gafas;
+//		for (int i = 0; i <10; i++) {
+//			for (int j = 0; j < 3; j++) {
+//				// JLabel prueba = new JLabel(new ImageIcon("gafas.png"));
+//				ImageIcon icon = new ImageIcon("gafas.png");
+//				tablagafas.setValueAt(icon, i, j);
+//				tablagafas.setValueAt(GestionTienda.gafasDisp.get(cont).label.getIcon(), i, j);
+//				cont++;
+//			}
+//		}
+//		
+//		panelgafas.getViewport().add(tablagafas);
+//		webpan.add(tablagafas);
+//		tablagafas.setBounds(500,0,1000,webpan.getHeight());
+//		tablagafas.setRowHeight(200);
+		
+		tablagaf= new JPanel();
+		tablagaf.setLayout(new GridLayout(1,1));
+		tablagaf.setBackground(Color.red);
+		webpan.add(tablagaf);
+		webpan.setBackground(Color.GREEN);
+		tablagaf.setBounds(500,0,(int)(webpan.getWidth()),webpan.getHeight());
+		tablagaf.add(new TableIcon(tablagaf));
+	
 		
 	}
 	

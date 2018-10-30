@@ -12,7 +12,8 @@ import javax.swing.*;
 public class GestionTienda {
 	public static ArrayList<Gafas> gafasDisp = new ArrayList<Gafas>();
 	public ArrayList<Gafas> pedido = new ArrayList<Gafas>();
-
+	public static ArrayList<String> fotosgafas = new ArrayList<String>();
+	
 	public static void crearGafas(String s) {
 		int contador = 0;
 		String linea;
@@ -31,6 +32,7 @@ public class GestionTienda {
 						partes[1],partes[2],partes[3],partes[4],Boolean.parseBoolean(partes[5]),
 						Integer.parseInt(partes[6]),Double.parseDouble(partes[7]),partes[8]));
 
+				fotosgafas.add(partes[0]);
 				linea = br.readLine();
 
 
