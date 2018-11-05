@@ -182,7 +182,7 @@ public class VentanaGafa extends JFrame{
 	
 
 		this.setIconImage(s.label.imagenObjeto);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setSize(940,480);
 		this.setVisible(true);
 		this.setResizable(false);

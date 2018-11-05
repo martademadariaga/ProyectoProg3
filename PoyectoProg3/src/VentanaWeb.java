@@ -10,7 +10,11 @@ import javax.swing.table.DefaultTableModel;
 
 public class VentanaWeb extends JFrame {
 	public Container cp;
-	public JLabel p1,p2,p3, labelu, labelc;
+	public static JLabel p1;
+	public static JLabel p2;
+	public static JLabel p3;
+	public JLabel labelu;
+	public JLabel labelc;
 	public JButton p4,reg,ini,siguiente, continuar;
 	public JTextField usu;
 	public JPasswordField cont;
@@ -143,12 +147,11 @@ public class VentanaWeb extends JFrame {
 		// fotos del inicio
 		p1 =new JLabel();
 		inicio.add(p1);
-		p1.setBounds(0,0,this.getWidth(), this.getHeight());
 		p2= new JLabel();
 		inicio.add(p2);
 		p3= new JLabel();
 		inicio.add(p3);
-		transicion(p1,p2,p3,this);
+		transicion(p1,p2,p3,inicio);
 		
 		
 		
@@ -161,7 +164,7 @@ public class VentanaWeb extends JFrame {
 		new VentanaWeb();
 	}
 	
-	public static void transicion(JLabel l, JLabel k, JLabel m, JFrame f) {
+	public static void transicion(JLabel l, JLabel k, JLabel m, JPanel f) {
 		 l.setIcon(new ImageIcon("persona1.jpg"));
 		 k.setIcon(new ImageIcon("persona2.jpg"));
 		 m.setIcon(new ImageIcon("persona3.jpg"));
@@ -265,8 +268,19 @@ public class VentanaWeb extends JFrame {
 		tablagaf.setLayout(new GridLayout(1,1));
 		tablagaf.setBackground(Color.red);
 		webpan.add(tablagaf);
-		webpan.setBackground(Color.GREEN);
-		tablagaf.setBounds(500,0,(int)(webpan.getWidth()),webpan.getHeight());
+		webpan.setBackground(Color.GRAY);
+		
+		p1 =new JLabel();
+		webpan.add(p1);
+		p2= new JLabel();
+		webpan.add(p2);
+		p3= new JLabel();
+		webpan.add(p3);
+		transicion(p1,p2,p3,webpan);
+		
+		
+		
+		tablagaf.setBounds(500,200,1800, webpan.getHeight()-300);
 		tablagaf.add(new TableIcon(tablagaf));
 	
 		

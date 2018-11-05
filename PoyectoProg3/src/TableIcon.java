@@ -1,4 +1,7 @@
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.*;
 import javax.swing.table.*;
 
@@ -25,6 +28,10 @@ public class TableIcon extends JPanel
 
         DefaultTableModel model = new DefaultTableModel(data, columnNames)
         {
+        	public boolean isCellEditable (int row, int column)
+        	   {
+        	       return false;
+        	   }
             //  Returning the Class of each column will allow different
             //  renderers to be used based on Class
             public Class getColumnClass(int column)
@@ -34,14 +41,27 @@ public class TableIcon extends JPanel
         };
         JTable table = new JTable( model );
         
+        table.addMouseListener(new MouseAdapter() {
+      	  public void mouseClicked(MouseEvent e) {
+      	    if (e.getClickCount() == 2) {
+      	      JTable target = (JTable)e.getSource();
+      	      int row = target.getSelectedRow();
+      	      int column = target.getSelectedColumn();
+      	      Gafas gaf= GestionTienda.gafasDisp.get(row*3+column);
+      	      new VentanaGafa(gaf);
+      	    }
+      	  }
+      	});
+        
         
 		table.setRowHeight(200);
-		
 		panel.add(table);
         JScrollPane scrollPane = new JScrollPane( table );
         panel.add( scrollPane );
       
     }
+    
+   
 
 //  
 
