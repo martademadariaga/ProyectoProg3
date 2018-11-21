@@ -4,11 +4,15 @@ import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class VentanaWeb extends JFrame {
+	public static ArrayList<Gafas> lista = new ArrayList<Gafas>();
+	public static DefaultListModel<ImageIcon> model = new DefaultListModel<ImageIcon>();
+	public static JList list= new JList();
 	public Container cp;
 	public static JLabel p1;
 	public static JLabel p2;
@@ -18,9 +22,10 @@ public class VentanaWeb extends JFrame {
 	public JButton p4,reg,ini,siguiente, continuar;
 	public JTextField usu;
 	public JPasswordField cont;
-	public static JPanel regpan, webpan, inicio, tablagaf;
+	public static JPanel regpan, webpan, inicio, tablagaf, listpan;
 	public static JScrollPane panelgafas;
 	public static JTable tablagafas;
+
 	
 	
 	public VentanaWeb() {
@@ -110,24 +115,25 @@ public class VentanaWeb extends JFrame {
 		regpan.setBounds(150,150 , 500, 200);
 		regpan.setLayout(null);
 		
-		labelu= new JLabel("nombre de usuario");
-		labelu.setBounds(0,50,200,30);
-		labelc= new JLabel("contraseña");
-		labelc.setBounds(0,100,200,30);
+
+		labelu= new JLabel(new ImageIcon("inises.jpeg"));
+		labelu.setBounds(0,0,500,200);
+		
 		usu = new JTextField();
-		usu.setBounds(200,50,200,30);
+		usu.setBounds(250,25,200,30);
+		
 		cont = new JPasswordField();
-		cont.setBounds(200,100,200,30);
+		cont.setBounds(250,88,200,30);
 		
-		continuar = new JButton("continuar");
+		continuar = new JButton("");
+		continuar.setIcon(new ImageIcon("continuar.jpeg"));
 		continuar.setBounds(150,150,200,30);
+
 		
-		regpan.add(labelu);
-		regpan.add(labelc);
 		regpan.add(usu);
 		regpan.add(cont);
 		regpan.add(continuar);
-		
+		regpan.add(labelu);
 		
 		
 		continuar.addActionListener(new ActionListener() {
@@ -243,49 +249,71 @@ public class VentanaWeb extends JFrame {
 	
 	public static void crearweb() {
 		
-//		GestionTienda.crearGafas("archivogafas.txt");
-//		tablagafas = new JTable();
-//		panelgafas = new JScrollPane(tablagafas);
-//		tablagafas.setModel(new DefaultTableModel(10,3));
-//		int cont= 0;
-//		Gafas gafas;
-//		for (int i = 0; i <10; i++) {
-//			for (int j = 0; j < 3; j++) {
-//				// JLabel prueba = new JLabel(new ImageIcon("gafas.png"));
-//				ImageIcon icon = new ImageIcon("gafas.png");
-//				tablagafas.setValueAt(icon, i, j);
-//				tablagafas.setValueAt(GestionTienda.gafasDisp.get(cont).label.getIcon(), i, j);
-//				cont++;
-//			}
-//		}
-//		
-//		panelgafas.getViewport().add(tablagafas);
-//		webpan.add(tablagafas);
-//		tablagafas.setBounds(500,0,1000,webpan.getHeight());
-//		tablagafas.setRowHeight(200);
+		// web
 		
-		tablagaf= new JPanel();
+		
+		tablagaf= new TableIcon();
 		tablagaf.setLayout(new GridLayout(1,1));
 		tablagaf.setBackground(Color.red);
-		webpan.add(tablagaf);
-		webpan.setBackground(Color.GRAY);
 		
+		listpan = new Tablapedido();
+		listpan.setLayout(new GridLayout(1,1));
+		listpan.setBackground(Color.green);
+		
+		webpan.add(listpan);
+		webpan.add(tablagaf);
+		
+	
+		// panel de la tabla de gafas
 		p1 =new JLabel();
 		webpan.add(p1);
 		p2= new JLabel();
 		webpan.add(p2);
 		p3= new JLabel();
 		webpan.add(p3);
-		transicion(p1,p2,p3,webpan);
+		// TODO 
+//		transicion(p1,p2,p3,webpan);
+		
+		tablagaf.setBounds(400,200,900, webpan.getHeight()-300);
+		
+		// panel de la lista del carrito
+		
+		listpan.setBounds(1300,200,500, webpan.getHeight()-300);
 		
 		
-		
-		tablagaf.setBounds(500,200,1800, webpan.getHeight()-300);
-		tablagaf.add(new TableIcon(tablagaf));
-	
+//		DefaultListModel<ImageIcon> model = new DefaultListModel<ImageIcon>();
+//        JList list= new JList();
+//        model.add(0, new ImageIcon("gafas1.png"));
+//     
+//        for(int i=0; i<lista.size(); i++) {
+//          //AÃ±adir cada elemento del ArrayList en el modelo de la lista
+//          model.add(i+1, new ImageIcon(lista.get(i).label.nombreImagenObjeto));
+//          
+//        }
+//     
+//        list.setModel(model);
+//        
+//        
+//     
+//       	
+//        JScrollPane scrollPane = new JScrollPane(list);
+//        listpan.add(scrollPane);
 		
 	}
-	
-	
+	public static void actualizarlista() {
+		
+		
+		webpan.remove(listpan);
+		listpan= new Tablapedido();
+		listpan.setBounds(1300,200,500, webpan.getHeight()-300);
+		listpan.setLayout(new GridLayout(1,1));
+		listpan.setBackground(Color.blue);
+		webpan.add(listpan);
+		webpan.validate();
+		webpan.repaint();
+		
+
+	}
 
 }
+
