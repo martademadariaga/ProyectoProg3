@@ -1,31 +1,34 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Pedido {
 	
 	protected ArrayList<Gafas> gafasCompr;
-	protected Date fCompr;
-	
-	
-	
+	protected String fecha;
+	int id;
+	String nick;
 	
 	
 
-	public Pedido(ArrayList<Gafas> gafasCompr, Date fCompr) {
+	public Pedido(ArrayList<Gafas> gafasCompr, String fecha, int id, String nick) {
 		super();
 		this.gafasCompr = gafasCompr;
-		this.fCompr = fCompr;
+		this.fecha = fecha;
+		this.id = id;
+		this.nick = nick;
 	}
-
-
-	public Pedido() {
+	
+	public Pedido(ArrayList<Gafas> gafasCompr, String nick) {
 		super();
-		this.gafasCompr = new ArrayList<Gafas>();
-		this.fCompr = null;
+		this.gafasCompr = gafasCompr;
+		Date date = new Date();
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		this.fecha = dateFormat.format(date);
+		this.id = BD2.numeropedidos(VentanaWeb.con);
+		this.nick = nick;
 	}
-
-
-
 
 
 	public ArrayList<Gafas> getGafasCompr() {
@@ -38,19 +41,19 @@ public class Pedido {
 	}
 
 
-	public Date getfCompr() {
-		return fCompr;
+	public String getfecha() {
+		return fecha;
 	}
 
 
-	public void setfCompr(Date fCompr) {
-		this.fCompr = fCompr;
+	public void setfecha(String fCompr) {
+		this.fecha = fCompr;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Pedido [gafasCompr=" + gafasCompr + ", fCompr=" + fCompr + "]";
+		return "Pedido [gafasCompr=" + gafasCompr + ", fecha=" + fecha + "]";
 	}
 
 
@@ -60,3 +63,4 @@ public class Pedido {
 	}
 
 }
+
