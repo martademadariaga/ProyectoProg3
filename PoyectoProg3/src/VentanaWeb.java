@@ -5,7 +5,11 @@ import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
@@ -23,16 +27,33 @@ public class VentanaWeb extends JFrame {
 	public static JLabel fondo;
 	public JLabel labelc;
 	public JButton p4,reg,ini,siguiente, continuar;
+	public static JButton comprar, borrar;
+	public static JButton pedidos;
 	public JTextField usu;
 	public JPasswordField cont;
 	public static JPanel regpan, webpan, inicio, tablagaf, listpan;
 	public static JScrollPane panelgafas;
 	public static JTable tablagafas;
-
+	public static Connection con;
+	public boolean entrar= false;
+	public boolean regist;
+	public static Usuario usuario;
+	public static JComboBox combo;
 
 
 	public VentanaWeb() {
 		// especificaciones
+		
+		con=BD2.initBD("tiendabd");
+		try {
+			BD2.crearTablas(con);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
+		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -55,7 +76,7 @@ public class VentanaWeb extends JFrame {
 
 		webpan= new JPanel();
 		inicio.add(webpan);
-		webpan.setBounds( 400, 200,1400, this.getHeight()-300);
+		webpan.setBounds( 400, 100,1400, this.getHeight()-200);
 		webpan.setLayout(null);
 		crearweb();
 		webpan.setVisible(false);
@@ -94,7 +115,7 @@ public class VentanaWeb extends JFrame {
 				// TODO Auto-generated method stub
 				reg.setVisible(false);
 				ini.setVisible(false); 
-				registro();
+				regist= true;
 
 
 			}
@@ -113,8 +134,7 @@ public class VentanaWeb extends JFrame {
 				// TODO Auto-generated method stub
 				reg.setVisible(false);
 				ini.setVisible(false); 
-				iniciosesion();
-
+				regist = false;
 
 			}
 
@@ -155,8 +175,29 @@ public class VentanaWeb extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				String nick = usu.getText();
+				char[] contr = cont.getPassword();
+				String contrasena = "";
+				for (int i = 0; i < contr.length; i++) {
+					contrasena = contrasena+contr[i];
+				}
+				
+				if (regist) {
+					entrar = BD2.usuarioenuso(con, nick);
+					if (entrar) {
+						BD2.insertarusuario(con, contrasena , nick);
+					}
+				}else {
+					
+					entrar = BD2.comprobarusuario(con, contrasena, nick );
+				
+				}
+				
+				if(entrar) {
+				usuario = new Usuario(nick, contrasena,"",new HashMap<String, Pedido>());
 				inicio.remove(regpan);
 				webpan.setVisible(true);
+				}
 
 
 			}
@@ -250,16 +291,6 @@ public class VentanaWeb extends JFrame {
 		};
 		t.start();
 	}
-	public static void registro() {
-
-		
-
-	}
-	public static void iniciosesion() {
-
-
-
-	}
 
 	public static void crearweb() {
 
@@ -291,18 +322,84 @@ public class VentanaWeb extends JFrame {
 		// TODO 
 		//transicion(p1,p2,p3,webpan);
 
-		tablagaf.setBounds(0,0,900, webpan.getHeight());
+		tablagaf.setBounds(0,100,900, webpan.getHeight());
 
 		// panel de la lista del carrito
 
-		listpan.setBounds(900,0,500, webpan.getHeight());
+		listpan.setBounds(900,100,500, webpan.getHeight()-200);
 		listpan.setVisible(false);
 
+		
+		comprar = new JButton(new ImageIcon("comprar.jpg"));
+		comprar.setBounds(900,webpan.getHeight()-100 , 500, 100);
+		webpan.add(comprar);
+		comprar.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Pedido pedido = new Pedido(lista,usuario.nick);
+				// TODO Auto-generated method stub
+				BD2.insertarpedido(con, pedido, pedido.nick);
+				lista.clear();
+				actualizarlista();
+				
+			}
+			
+		});
+		
+		
+		pedidos = new JButton(new ImageIcon("pedidos.jpg"));
+		pedidos.setBounds(900,0, 400, 100);
+		webpan.add(pedidos);
+		
+		pedidos.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				usuario=BD2.verpedidos(con, usuario);
+				
+				Iterator<String> it = usuario.pedidos.keySet().iterator();
+				while (it.hasNext()) {
+					String key = it.next();
+					
+					System.out.println(usuario.nick+" hizo un pedido el dia "+usuario.pedidos.get(key).fecha+" de "+usuario.pedidos.get(key).gafasCompr.size()+ " gafas:");
+					for (int i = 0; i <usuario.pedidos.get(key).gafasCompr.size(); i++) {
+						System.out.println(usuario.pedidos.get(key).gafasCompr.get(i).nombre);
+					}
+					
+					
+				}
+				
+			}
+			
+		});
+		
+		
+		borrar = new JButton(new ImageIcon("papelera.jpg"));
+		borrar.setBounds(1300,0, 100, 100);
+		webpan.add(borrar);
+	
+		
+		borrar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if (lista.size()>0) {
+					lista.remove(Tablapedido.table.getSelectedRow());
+					actualizarlista();
+				}
+			}
+			
+		});
 
 	}
-	public static void
-	actualizarlista() {
+
+	
+	
+	public static void actualizarlista() {
 
 		int n =0;
 
@@ -315,13 +412,13 @@ public class VentanaWeb extends JFrame {
 		} else if (lista.size()==3) {
 			n = 600;
 		} else {
-			n =  webpan.getHeight();
+			n =  webpan.getHeight()-200;
 		}
 
 		webpan.remove(fondo);
 		webpan.remove(listpan);
 		listpan= new Tablapedido();
-		listpan.setBounds(900,0,500, n);
+		listpan.setBounds(900,100,500, n);
 		listpan.setLayout(new GridLayout(1,1));
 		listpan.setBackground(Color.blue);
 		webpan.add(listpan);
@@ -329,8 +426,11 @@ public class VentanaWeb extends JFrame {
 		webpan.validate();
 		webpan.repaint();
 
-		//listpan.setBackground(new Color(0,0,0,64));
+		listpan.setBackground(new Color(0,0,0,64));
 
 	}
+	
+	
+	
 
 }

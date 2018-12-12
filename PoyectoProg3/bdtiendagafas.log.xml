@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-10T17:58:54</date>
+  <millis>1544461134145</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-10T17:59:01</date>
+  <millis>1544461141881</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-10T17:59:56</date>
+  <millis>1544461196609</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-10T18:00:39</date>
+  <millis>1544461239919</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-10T18:01:05</date>
+  <millis>1544461265463</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-10T18:03:38</date>
+  <millis>1544461418446</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-10T18:04:38</date>
+  <millis>1544461478331</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-10T18:06:36</date>
+  <millis>1544461596123</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-10T18:15:37</date>
+  <millis>1544462137911</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-10T18:15:43</date>
+  <millis>1544462143809</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-10T18:22:24</date>
+  <millis>1544462544312</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-10T18:32:43</date>
+  <millis>1544463163027</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-11T17:19:51</date>
+  <millis>1544545191750</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-11T17:24:44</date>
+  <millis>1544545484864</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-11T17:27:20</date>
+  <millis>1544545640143</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-11T17:31:15</date>
+  <millis>1544545875247</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-11T17:33:17</date>
+  <millis>1544545997750</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-11T17:33:31</date>
+  <millis>1544546011417</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-11T17:33:43</date>
+  <millis>1544546023637</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-11T17:34:07</date>
+  <millis>1544546047270</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-11T17:34:29</date>
+  <millis>1544546069469</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-11T17:36:29</date>
+  <millis>1544546189054</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-11T17:37:00</date>
+  <millis>1544546220083</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-11T17:40:56</date>
+  <millis>1544546456546</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-12T10:37:42</date>
+  <millis>1544607462281</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-12T10:38:10</date>
+  <millis>1544607490458</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-12T12:14:56</date>
+  <millis>1544613296216</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-12T12:15:10</date>
+  <millis>1544613310453</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-12T12:30:43</date>
+  <millis>1544614243208</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-12T12:33:17</date>
+  <millis>1544614397184</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-12-12T16:36:44</date>
+  <millis>1544629004806</millis>
+  <sequence>0</sequence>
+  <logger>BD2</logger>
+  <level>INFO</level>
+  <class>BD2</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos tiendabd</message>
+</record>
+</log>

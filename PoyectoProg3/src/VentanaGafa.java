@@ -29,7 +29,7 @@ public class VentanaGafa extends JFrame{
 	public JPanel abajo;
 	public JPanel arribad;
 	public JPanel abajoi;
-	public JButton browse;
+	public JButton browse, agregar;
 	public JSlider zoom;
 	public JSlider rotar;
 	public JTextField texto;
@@ -49,19 +49,24 @@ public class VentanaGafa extends JFrame{
 		
 		// panel browse
 		abajo = new JPanel();
-		abajo.setLayout(new GridLayout(2,1));
+		abajo.setLayout(new GridLayout(1,1));
 		cp.add(abajo);
-		browse = new JButton("Browse");
+		browse = new JButton(new ImageIcon("browse.jpeg"));
 		abajo.add(browse);
-		abajo.setBounds(0, 380, 640,120);
-	
+		abajo.setBounds(0, 380, 640,60);
+		agregar = new JButton(new ImageIcon("agregar.jpeg"));
+		cp.add(agregar);
+		agregar.setBounds(640, 380, 300, 60);
+		
 	
 		
 		// gafas
 		
 		gafas = s.label;
 		arriba.add(s.label);
-		gafas.setLocation(690, 50);
+		gafas.setLocation(590, 50);
+		gafas.setSize(400,200);
+		gafas.zoom=0.5;
 		moverGafas(gafas, arriba);
 	
 
@@ -105,7 +110,7 @@ public class VentanaGafa extends JFrame{
 						// TODO Auto-generated method stub
 					
 					
-					gafas.setSize(200*zoom.getValue()/100, 100*zoom.getValue()/100);
+					gafas.setSize(200*zoom.getValue()/50, 100*zoom.getValue()/50);
 					}
 					
 				});
@@ -175,11 +180,20 @@ public class VentanaGafa extends JFrame{
 
 		});
 
+		agregar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+			VentanaWeb.lista.add(s);
+			VentanaWeb.actualizarlista();
+			}
+			
+		});
 	
 		
 		//abajo
-		abajoi = new JPanel();
-	
+		
 
 		this.setIconImage(s.label.imagenObjeto);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -212,9 +226,10 @@ public class VentanaGafa extends JFrame{
 		// redimensionamos el frame
 		label.setSize(w,h);
 		arriba.setSize(w+300,h);
-		abajo.setBounds(0,h,w, 120);
+		abajo.setBounds(0,h,w, 60);
+		agregar.setBounds(w, h, 300, 60);
 		arribad.setBounds(w,0,300,h);
-		gafas.setLocation(w+50, 50);
+		gafas.setLocation(w-50, 50);
 		this.setSize(w+300,h+100);
 		return image;
 		

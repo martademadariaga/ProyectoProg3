@@ -20,6 +20,7 @@ public class JLabelGraficoAjustado extends JLabel {
 	protected float opacidad;      // Opacidad del objeto (0.0f a 0.1f)
 	protected BufferedImage imagenObjeto;  // imagen para el escalado
 	private static final long serialVersionUID = 1L;  // para serializar
+	protected String nombreImagenObjeto;
 
 	/** Crea un nuevo JLabel gráfico.<br>
 	 * Si no existe el fichero de imagen, se crea un rectángulo blanco con borde rojo
@@ -27,12 +28,13 @@ public class JLabelGraficoAjustado extends JLabel {
 	 * @param anchura	Anchura del gráfico en píxels (si es <= 0 ocupa todo el ancho)
 	 * @param altura	Altura del gráfico en píxels (si es <= 0 ocupa todo el alto)
 	 */
-	public JLabelGraficoAjustado( String nombreImagenObjeto, int anchura, int altura ) {
+	public JLabelGraficoAjustado( String ImagenObjeto, int anchura, int altura ) {
 		zoom = 1.0;
-		setName( nombreImagenObjeto );
+		setName( ImagenObjeto );
 		opacidad = 1.0f;
-		setImagen( nombreImagenObjeto ); // Cargamos el icono
+		setImagen( ImagenObjeto ); // Cargamos el icono
 		setSize( anchura, altura );
+		nombreImagenObjeto = ImagenObjeto;
 	}
 	
 	@Override

@@ -1,17 +1,17 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Usuario {
 	
 	protected String nick;
-
-	protected String email;
+	protected String contra;
 	protected String nTar;
-	protected ArrayList<Pedido> pedidos;
+	protected HashMap<String, Pedido> pedidos;
 	
-	public Usuario(String nick, String email, String nTar, ArrayList<Pedido> pedidos) {
+	public Usuario(String nick, String email, String nTar, HashMap<String, Pedido> pedidos) {
 		super();
 		this.nick = nick;
-		this.email = email;
+		this.contra = email;
 		this.nTar = nTar;
 		this.pedidos = pedidos;
 	}
@@ -20,9 +20,9 @@ public class Usuario {
 	public Usuario() {
 		super();
 		this.nick = "null";
-		this.email = "null";
+		this.contra = "null";
 		this.nTar = "null";
-		this.pedidos = new ArrayList<Pedido>();
+		this.pedidos =  new HashMap<String, Pedido>();
 	}
 	
 	
@@ -41,12 +41,12 @@ public class Usuario {
 
 
 	public String getEmail() {
-		return email;
+		return contra;
 	}
 
 
 	public void setEmail(String email) {
-		this.email = email;
+		this.contra = email;
 	}
 
 
@@ -60,19 +60,19 @@ public class Usuario {
 	}
 
 
-	public ArrayList<Pedido> getPedidos() {
+	public HashMap<String, Pedido> getPedidos() {
 		return pedidos;
 	}
 
 
-	public void setPedidos(ArrayList<Pedido> pedidos) {
+	public void setPedidos(HashMap<String, Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Usuario [nick=" + nick + ", email=" + email + ", nTar=" + nTar + ", pedidos=" + pedidos + "]";
+		return "Usuario [nick=" + nick + ", email=" + contra + ", nTar=" + nTar + ", pedidos=" + pedidos + "]";
 	}
 
 }

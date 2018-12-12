@@ -7,7 +7,7 @@ import javax.swing.table.*;
 
 public class TableIcon extends JPanel
 {
-    public TableIcon(JPanel panel)
+	public TableIcon()
     {
         
     	GestionTienda.crearGafas("archivogafas.txt");
@@ -39,6 +39,7 @@ public class TableIcon extends JPanel
                 return getValueAt(0, column).getClass();
             }
         };
+        
         JTable table = new JTable( model );
         
         table.addMouseListener(new MouseAdapter() {
@@ -55,9 +56,16 @@ public class TableIcon extends JPanel
         
         
 		table.setRowHeight(200);
-		panel.add(table);
-        JScrollPane scrollPane = new JScrollPane( table );
-        panel.add( scrollPane );
+		
+		table.setRowSelectionAllowed(false);
+		table.setColumnSelectionAllowed(false);
+		table.setCellSelectionEnabled(false);
+		//table.setCellSelectionEnabled(true);
+		table.setGridColor(Color.BLACK);
+		
+		
+        JScrollPane scrollPane = new JScrollPane(table);
+        this.add(scrollPane);
       
     }
     
