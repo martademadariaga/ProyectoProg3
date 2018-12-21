@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -42,7 +43,7 @@ public class VentanaGafa extends JFrame{
 		arriba = new JPanel();
 		arriba.setLayout(null);
 		arriba.setBackground(Color.green);
-		arriba.setBounds(0, 0, 940,380);
+		arriba.setBounds(0, 0,(int)VentanaWeb.redimx(940),(int)VentanaWeb.redimy(380));
 		cp.add(arriba);
 
 		
@@ -51,12 +52,12 @@ public class VentanaGafa extends JFrame{
 		abajo = new JPanel();
 		abajo.setLayout(new GridLayout(1,1));
 		cp.add(abajo);
-		browse = new JButton(new ImageIcon("browse.jpeg"));
+		browse = new JButton(VentanaWeb.resize("browse.jpeg",(int)VentanaWeb.redimx(1500),(int)VentanaWeb.redimy(60)));
 		abajo.add(browse);
-		abajo.setBounds(0, 380, 640,60);
-		agregar = new JButton(new ImageIcon("agregar.jpeg"));
+		abajo.setBounds(0, (int)VentanaWeb.redimy(380), (int)VentanaWeb.redimx(640),(int)VentanaWeb.redimy(60));
+		agregar = new JButton(VentanaWeb.resize("agregar.jpeg", (int)VentanaWeb.redimx(300), (int)VentanaWeb.redimy(60)));
 		cp.add(agregar);
-		agregar.setBounds(640, 380, 300, 60);
+		agregar.setBounds((int)VentanaWeb.redimx(640), (int)VentanaWeb.redimy(380), (int)VentanaWeb.redimx(300), (int)VentanaWeb.redimy(60));
 		
 	
 		
@@ -64,8 +65,8 @@ public class VentanaGafa extends JFrame{
 		
 		gafas = s.label;
 		arriba.add(s.label);
-		gafas.setLocation(590, 50);
-		gafas.setSize(400,200);
+		gafas.setLocation((int)VentanaWeb.redimx(590), (int)VentanaWeb.redimy(50));
+		gafas.setSize((int)VentanaWeb.redimy(400),(int)VentanaWeb.redimy(200));
 		gafas.zoom=0.5;
 		moverGafas(gafas, arriba);
 	
@@ -92,7 +93,7 @@ public class VentanaGafa extends JFrame{
 		// controles de las gafas
 		
 				arribad = new JPanel();
-				arribad.setBounds(640,0,300,480);
+				arribad.setBounds((int)VentanaWeb.redimx(640),0,(int)VentanaWeb.redimx(300),(int)VentanaWeb.redimy(480));
 				arribad.setBackground(Color.white);
 				arriba.add(arribad);
 				
@@ -102,7 +103,7 @@ public class VentanaGafa extends JFrame{
 				zoom.setMinimum(25);
 				zoom.setValue(100);
 				arribad.add(zoom);
-				zoom.setLocation(690, 50);
+				zoom.setLocation((int)VentanaWeb.redimx(690), (int)VentanaWeb.redimy(50));
 				zoom.addChangeListener(new ChangeListener() {
 
 					@Override
@@ -110,7 +111,7 @@ public class VentanaGafa extends JFrame{
 						// TODO Auto-generated method stub
 					
 					
-					gafas.setSize(200*zoom.getValue()/50, 100*zoom.getValue()/50);
+					gafas.setSize((int)VentanaWeb.redimx(200*zoom.getValue()/50),(int)VentanaWeb.redimy( 100*zoom.getValue()/50));
 					}
 					
 				});
@@ -120,7 +121,7 @@ public class VentanaGafa extends JFrame{
 				rotar.setMinimum(-180);
 				rotar.setValue(0);
 				arribad.add(rotar);
-				rotar.setLocation(690, 150);
+				rotar.setLocation((int)VentanaWeb.redimx(690), (int)VentanaWeb.redimy(150));
 				rotar.addChangeListener(new ChangeListener() {
 
 					@Override
@@ -141,10 +142,10 @@ public class VentanaGafa extends JFrame{
 		
 		// pane de la foto
 		
-		label = new JLabel(new ImageIcon("predet.png"));
+		label = new JLabel(VentanaWeb.resize("predet.png",(int)VentanaWeb.redimx(640),(int)VentanaWeb.redimy(380)));
 		arriba.add(label);
 		
-		label.setSize(640,380);
+		label.setSize((int)VentanaWeb.redimx(640),(int)VentanaWeb.redimy(380));
 	
 		
 
@@ -197,7 +198,7 @@ public class VentanaGafa extends JFrame{
 
 		this.setIconImage(s.label.imagenObjeto);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		this.setSize(940,480);
+		this.setSize((int)VentanaWeb.redimx(940),(int)VentanaWeb.redimy(480));
 		this.setVisible(true);
 		this.setResizable(false);
 		this.setTitle(s.nombre);
@@ -213,7 +214,7 @@ public class VentanaGafa extends JFrame{
 		int h=MyImage.getIconHeight();
 
 		// si la foto es demasiado grande, la reducimos
-		while(w>=2000 || h>920) {
+		while(w>=VentanaWeb.redimx(2000) || h>VentanaWeb.redimy(920)) {
 			w=w/2;
 			h=h/2;
 		}
@@ -225,22 +226,22 @@ public class VentanaGafa extends JFrame{
 
 		// redimensionamos el frame
 		label.setSize(w,h);
-		arriba.setSize(w+300,h);
-		abajo.setBounds(0,h,w, 60);
-		agregar.setBounds(w, h, 300, 60);
-		arribad.setBounds(w,0,300,h);
-		gafas.setLocation(w-50, 50);
-		this.setSize(w+300,h+100);
+		arriba.setSize(w+(int)VentanaWeb.redimx(300),h);
+		abajo.setBounds(0,h,w, (int)VentanaWeb.redimy(60));
+		agregar.setBounds(w, h, (int)VentanaWeb.redimx(300), (int)VentanaWeb.redimy(60));
+		arribad.setBounds(w,0,(int)VentanaWeb.redimx(300),h);
+		gafas.setLocation(w-(int)VentanaWeb.redimx(50), (int)VentanaWeb.redimy(50));
+		this.setSize(w+(int)VentanaWeb.redimx(300),h+(int)VentanaWeb.redimy(100));
 		return image;
 		
 	}
 
 
 
-	public static void main(String[] args) {
-		JLabelGraficoAjustado label1 = new JLabelGraficoAjustado("gafas.png", 200,100);
-		new VentanaGafa(new Gafas(label1,"1","Phoebe","negro","Ray-Ban",false,23,89.99,"Las gafas perfectas para la vida"));
-	}
+//	public static void main(String[] args) {
+//		JLabelGraficoAjustado label1 = new JLabelGraficoAjustado("gafas.png", 200,100);
+//		new VentanaGafa(new Gafas(label1,"1","Phoebe","negro","Ray-Ban",false,23,89.99,"Las gafas perfectas para la vida"));
+//	}
 
 	
 	
@@ -292,8 +293,8 @@ public class VentanaGafa extends JFrame{
 							x =l.getX()+(xb-xa);
 							y =l.getY()+(yb-ya);
 						
-							if(raton && x<= (arriba.getWidth()-100) && y>=-50
-									&& x>= -100 && y<= (arriba.getHeight())-50) {
+							if(raton && x<= (arriba.getWidth()-(int)VentanaWeb.redimx(100)) && y>=-(int)VentanaWeb.redimy(50)
+									&& x>= -(int)VentanaWeb.redimx(100) && y<= (arriba.getHeight())-(int)VentanaWeb.redimy(50)) {
 							l.setLocation(x, y);
 							}
 						
