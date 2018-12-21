@@ -23,7 +23,7 @@ public class BD2 {
 			return con;
 		} catch (ClassNotFoundException | SQLException e) {
 
-			log(Level.SEVERE, "Error en conexión de base de datos " + nombreBD, e);
+			log(Level.SEVERE, "Error en conexiÃ³n de base de datos " + nombreBD, e);
 			e.printStackTrace();
 			return null;
 		}
@@ -44,7 +44,7 @@ public class BD2 {
 			st.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			log.log(Level.SEVERE, "Hubo un error en la creación de tablas", e);
+			log.log(Level.SEVERE, "Hubo un error en la creaciÃ³n de tablas", e);
 		}
 
 	}
@@ -252,7 +252,6 @@ public class BD2 {
 			try {
 				Handler h = new FileHandler("bdtiendagafas.log.xml", true);
 				h.setLevel(Level.FINEST);
-				log.setUseParentHandlers(false);
 				log.addHandler(h); // Y saca el log a fichero xml
 			} catch (Exception e) {
 				log.log(Level.WARNING, "No se pudo crear fichero de log", e);
