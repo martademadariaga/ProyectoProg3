@@ -1,8 +1,12 @@
 import java.awt.Color;
 
+
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -39,10 +43,37 @@ public class VentanaWeb extends JFrame {
 	public boolean regist;
 	public static Usuario usuario;
 	public static JComboBox combo;
+	static int x;
+	static int y;
 
+	
+	public static double redimx(double s) {
+		s = (s/1920)*x;
+		return s;
+	}
+	public static double redimy(double s) {
+		s = (s/1080)*y;
+		return s;
+	}
+	public static ImageIcon resize(String ImagePath,int w, int h){
+		ImageIcon MyImage = new ImageIcon(ImagePath);
+		
+		Image img = MyImage.getImage();
+		Image newImg = img.getScaledInstance(w,h, Image.SCALE_SMOOTH);
+		ImageIcon image = new ImageIcon(newImg);
+		return image;
+
+	}
+		// redimensionamos el frame
+	
 
 	public VentanaWeb() {
 		// especificaciones
+		
+		Toolkit t = Toolkit.getDefaultToolkit();
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		x=screenSize.width;
+		y=screenSize.height;
 		
 		con=BD2.initBD("tiendabd");
 		try {
@@ -76,21 +107,21 @@ public class VentanaWeb extends JFrame {
 
 		webpan= new JPanel();
 		inicio.add(webpan);
-		webpan.setBounds( 400, 100,1400, this.getHeight()-200);
+		webpan.setBounds((int) redimx(400), (int)redimy(100),(int)redimx(1400),(int)(this.getHeight()-redimy(200)));
 		webpan.setLayout(null);
 		crearweb();
 		webpan.setVisible(false);
 		webpan.setBackground(ColorUIResource.BLUE);
-		fondo= new JLabel(new ImageIcon("compra.jpg"));
+		fondo= new JLabel(resize("compra.jpg",(int) redimx(500),(int)redimy(1721)));
 		webpan.add(fondo);
-		fondo.setBounds(900, 0, 500, this.getHeight()-300);
+		fondo.setBounds((int)redimx(900), 0,(int) redimx(500),(int)( this.getHeight()-redimy(300)));
 
 
 		// botones registro
 
 		p4= new JButton("");
-		p4.setIcon(new ImageIcon("empezar.jpg"));
-		p4.setBounds(150, 150, 500, 200);
+		p4.setIcon(resize("empezar.jpg",(int)redimx(500),(int)redimy( 200)));
+		p4.setBounds((int)redimx(150), (int)redimy(150),(int)redimx(500),(int)redimy( 200));
 		inicio.add(p4);
 
 		p4.addActionListener(new ActionListener() {
@@ -106,8 +137,8 @@ public class VentanaWeb extends JFrame {
 
 		// registro o inicio de sesion
 		reg= new JButton("");
-		reg.setIcon(new ImageIcon("reg.jpg"));
-		reg.setBounds(150, 150, 500, 100);
+		reg.setIcon(resize("reg.jpg",(int)redimx(500),(int)redimy(100)));
+		reg.setBounds((int)redimx(150), (int)redimy(150),(int)redimx(500),(int)redimy(100));
 		inicio.add(reg);
 		reg.addActionListener(new ActionListener() {
 			@Override
@@ -124,8 +155,8 @@ public class VentanaWeb extends JFrame {
 
 
 		ini= new JButton("");
-		ini.setIcon(new ImageIcon("ini.jpg"));
-		ini.setBounds(150, 250, 500, 100);
+		ini.setIcon(resize("ini.jpg",(int)redimx(500),(int)redimy(100)));
+		ini.setBounds((int)redimx(150), (int)redimy(250),(int)redimx(500),(int)redimy(100));
 		inicio.add(ini);
 
 		ini.addActionListener(new ActionListener() {
@@ -146,22 +177,22 @@ public class VentanaWeb extends JFrame {
 		regpan= new JPanel();
 		inicio.add(regpan);
 		regpan.setBackground(Color.WHITE);
-		regpan.setBounds(150,150 , 500, 200);
+		regpan.setBounds((int)redimx(150), (int)redimy(150),(int)redimx(500),(int)redimy( 200));
 		regpan.setLayout(null);
 
 
-		labelu= new JLabel(new ImageIcon("inises.jpeg"));
-		labelu.setBounds(0,0,500,200);
+		labelu= new JLabel(resize("inises.jpeg",(int)redimx(500),(int)redimy( 200)));
+		labelu.setBounds((int)redimx(0), (int)redimy(0),(int)redimx(500),(int)redimy( 200));
 
 		usu = new JTextField();
-		usu.setBounds(250,25,200,30);
+		usu.setBounds((int)redimx(250), (int)redimy(25),(int)redimx(200),(int)redimy(30));
 
 		cont = new JPasswordField();
-		cont.setBounds(250,88,200,30);
+		cont.setBounds((int)redimx(250), (int)redimy(88),(int)redimx(200),(int)redimy( 30));
 
 		continuar = new JButton("");
-		continuar.setIcon(new ImageIcon("continuar.jpeg"));
-		continuar.setBounds(150,150,200,30);
+		continuar.setIcon(resize("continuar.jpeg",(int)redimx(200),(int)redimy(30)));
+		continuar.setBounds((int)redimx(150), (int)redimy(150),(int)redimx(200),(int)redimy(30));
 
 
 		regpan.add(usu);
@@ -226,9 +257,10 @@ public class VentanaWeb extends JFrame {
 	}
 
 	public static void transicion(JLabel l, JLabel k, JLabel m, JPanel f) {
-		l.setIcon(new ImageIcon("persona1.jpg"));
-		k.setIcon(new ImageIcon("persona2.jpg"));
-		m.setIcon(new ImageIcon("persona3.jpg"));
+		
+		l.setIcon(resize("persona1.jpg",(int)redimx(2500),(int)redimy(1667)));
+		k.setIcon(resize("persona2.jpg",(int)redimx(2500),(int)redimy(1667)));
+		m.setIcon(resize("persona3.jpg",(int)redimx(3000),(int)redimy(1685)));
 		l.setSize(f.getSize());
 		m.setSize(f.getSize());
 		k.setSize(f.getSize());
@@ -322,16 +354,18 @@ public class VentanaWeb extends JFrame {
 		// TODO 
 		//transicion(p1,p2,p3,webpan);
 
-		tablagaf.setBounds(0,100,900, webpan.getHeight());
+		tablagaf.setBounds((int)redimx(0), (int)redimy(100),(int)redimx(900), webpan.getHeight());
+
 
 		// panel de la lista del carrito
 
-		listpan.setBounds(900,100,500, webpan.getHeight()-200);
+		listpan.setBounds((int)redimx(900), (int)redimy(100),(int)redimx(500),(int) (webpan.getHeight()-redimy(200)));
 		listpan.setVisible(false);
 
 		
-		comprar = new JButton(new ImageIcon("comprar.jpg"));
-		comprar.setBounds(900,webpan.getHeight()-100 , 500, 100);
+		comprar = new JButton(resize("comprar.jpg",(int)redimx(500),(int)redimy(100)));
+		comprar.setBounds((int)redimx(900), (int) (webpan.getHeight()-redimy(100)),(int)redimx(500),(int)redimy(100));
+
 		webpan.add(comprar);
 		comprar.addActionListener(new ActionListener() {
 
@@ -348,8 +382,8 @@ public class VentanaWeb extends JFrame {
 		});
 		
 		
-		pedidos = new JButton(new ImageIcon("pedidos.jpg"));
-		pedidos.setBounds(900,0, 400, 100);
+		pedidos = new JButton(resize("pedidos.jpg",(int)redimx(400),(int)redimy( 100)));
+		pedidos.setBounds((int)redimx(900), (int)redimy(0),(int)redimx(400),(int)redimy( 100));
 		webpan.add(pedidos);
 		
 		pedidos.addActionListener(new ActionListener() {
@@ -377,8 +411,8 @@ public class VentanaWeb extends JFrame {
 		});
 		
 		
-		borrar = new JButton(new ImageIcon("papelera.jpg"));
-		borrar.setBounds(1300,0, 100, 100);
+		borrar = new JButton(resize("papelera.jpg",(int)redimx(100),(int)redimy(100)));
+		borrar.setBounds((int)redimx(1300), (int)redimy(0),(int)redimx(100),(int)redimy(100));
 		webpan.add(borrar);
 	
 		
@@ -387,7 +421,7 @@ public class VentanaWeb extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				if (lista.size()>0) {
+				if (Tablapedido.table.getSelectedRow()>-1) {
 					lista.remove(Tablapedido.table.getSelectedRow());
 					actualizarlista();
 				}
@@ -404,21 +438,21 @@ public class VentanaWeb extends JFrame {
 		int n =0;
 
 		if (lista.size()==0) {
-			n = 0;
+			n =(0);
 		} else if (lista.size()==1) {
-			n = 200;
+			n =(200);
 		} else if (lista.size()==2) {
-			n = 400;
+			n =(400);
 		} else if (lista.size()==3) {
 			n = 600;
 		} else {
-			n =  webpan.getHeight()-200;
+			n =  webpan.getHeight()-(200);
 		}
 
 		webpan.remove(fondo);
 		webpan.remove(listpan);
 		listpan= new Tablapedido();
-		listpan.setBounds(900,100,500, n);
+		listpan.setBounds((int)redimx(900), (int)redimy(100),(int)redimx(500),(int)redimy( n));
 		listpan.setLayout(new GridLayout(1,1));
 		listpan.setBackground(Color.blue);
 		webpan.add(listpan);
