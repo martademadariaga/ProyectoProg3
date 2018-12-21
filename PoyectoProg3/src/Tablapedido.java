@@ -1,4 +1,5 @@
 import java.awt.*;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -14,16 +15,15 @@ public class Tablapedido extends JPanel
     {
 		int n = VentanaWeb.lista.size();
        
-        String[] columnNames = {""};
-        Object[][] data= new Object[n][1];
+        String[] columnNames = {"",""};
+        Object[][] data= new Object[n][2];
         
         for (int i = 0; i <n; i++) {
 			
-				Icon foto = new ImageIcon(VentanaWeb.lista.get(i).label.nombreImagenObjeto);
-			
-
+				Icon foto =VentanaWeb.resize(VentanaWeb.lista.get(i).label.nombreImagenObjeto,(int)VentanaWeb.redimx(200),(int)VentanaWeb.redimy(100));
+				String precio =(""+VentanaWeb.lista.get(i).precio+"€");
 				data[i][0]=foto;
-			
+				data[i][1]= precio;
 		}
 		
       
@@ -43,7 +43,8 @@ public class Tablapedido extends JPanel
           };
         
         table = new JTable( model );
-        
+        table.setFont(new Font("Verdana", Font.ITALIC,32));
+        table.setForeground(Color.WHITE);
         table.setBackground(new Color(0,0,0,80));
         table.addMouseListener(new MouseAdapter() {
         	
@@ -51,7 +52,11 @@ public class Tablapedido extends JPanel
       	});
         
         
-		table.setRowHeight(200);
+		table.setRowHeight((int)VentanaWeb.redimx(200));
+		table.setRowSelectionAllowed(true);
+		table.setColumnSelectionAllowed(false);
+		table.setCellSelectionEnabled(false);
+		table.setGridColor(Color.black);
 		
        scrollpane = new JScrollPane(table);
         this.add(scrollpane);
