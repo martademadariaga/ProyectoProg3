@@ -1,4 +1,5 @@
 import java.awt.*;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -17,7 +18,7 @@ public class TableIcon extends JPanel
         for (int i = 0; i <10; i++) {
 			for (int j = 0; j < 3; j++) {
 				// JLabel prueba = new JLabel(new ImageIcon("gafas.png"));
-				Icon foto = new ImageIcon(GestionTienda.fotosgafas.get(cont));
+				Icon foto = VentanaWeb.resize(GestionTienda.fotosgafas.get(cont),(int)VentanaWeb.redimx(200),(int)VentanaWeb.redimy(100));
 				
 				data[i][j]=foto;
 				
@@ -55,7 +56,7 @@ public class TableIcon extends JPanel
       	});
         
         
-		table.setRowHeight(200);
+		table.setRowHeight((int)VentanaWeb.redimy(200));
 		
 		table.setRowSelectionAllowed(false);
 		table.setColumnSelectionAllowed(false);
@@ -75,3 +76,4 @@ public class TableIcon extends JPanel
 
    
 }
+
