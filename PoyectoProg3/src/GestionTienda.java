@@ -11,7 +11,7 @@ import javax.swing.*;
 
 public class GestionTienda {
 	public static ArrayList<Gafas> gafasDisp = new ArrayList<Gafas>();
-	public ArrayList<Gafas> pedido = new ArrayList<Gafas>();
+	public static ArrayList<Gafas> gafasTienda = new ArrayList<Gafas>();
 	public static ArrayList<String> fotosgafas = new ArrayList<String>();
 	
 	public static void crearGafas(String s) {
@@ -28,7 +28,7 @@ public class GestionTienda {
 				String[] partes= new String[100];
 				partes =linea.split(",");
 
-				gafasDisp.add( new Gafas(new JLabelGraficoAjustado(partes[0], 200,100),
+				gafasTienda.add( new Gafas(new JLabelGraficoAjustado(partes[0], 200,100),
 						partes[1],partes[2],partes[3],partes[4],Boolean.parseBoolean(partes[5]),
 						Integer.parseInt(partes[6]),Double.parseDouble(partes[7]),partes[8]));
 
@@ -37,6 +37,7 @@ public class GestionTienda {
 
 
 			}
+		gafasDisp=gafasTienda;
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -48,14 +49,14 @@ public class GestionTienda {
 
 	}
 
-	public static void main(String[] args) {
-		
-		crearGafas("archivogafas.txt");
-		for (Gafas gafa : gafasDisp) {
-			System.out.println(	gafa.toString());
-		
-		}
-		
-		
-	}
+//	public static void main(String[] args) {
+//		
+//		crearGafas("archivogafas.txt");
+//		for (Gafas gafa : gafasDisp) {
+//			System.out.println(	gafa.toString());
+//		
+//		}
+//		
+//		
+//	}
 }

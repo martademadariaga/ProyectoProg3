@@ -34,7 +34,7 @@ public class BD2 {
 			Statement st = con.createStatement();
 			st.setQueryTimeout(30);
 
-			st.executeUpdate("CREATE TABLE if not exists usuario (nick varchar(35) NOT NULL ," + "ntar number(20),"
+			st.executeUpdate("CREATE TABLE if not exists usuario (nick varchar(35) NOT NULL ," + "email number(20),"
 					+ "pass varchar(18))");
 
 			st.executeUpdate(
@@ -122,6 +122,46 @@ public class BD2 {
 		return entrar;
 		
 	}
+	
+	public static boolean tieneEmail(Connection con, Usuario usuario) {
+		boolean tiene= false;
+		try {
+			Statement statement = con.createStatement();
+			statement.setQueryTimeout(30); // poner timeout 30 msg
+
+				 ResultSet rs =statement.executeQuery("select email from usuario WHERE nick ='"+usuario.nick+"'");
+
+		        while (rs.next()) {
+		        if(!rs.getString("email").equals("")) {
+		        tiene = true;
+		        usuario.email = rs.getString("email");
+		        }
+		        }
+		        
+		   
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return tiene;
+		
+	}
+	public static void insertarEmail(Connection con, Usuario usuario) {
+
+		try {
+			Statement statement = con.createStatement();
+			statement.setQueryTimeout(30); // poner timeout 30 msg
+
+				statement.executeUpdate("update usuario set email ='"+usuario.email+"' where nick = '"+usuario.nick+"'");
+
+			statement.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	
 	
 	public static int numeropedidos(Connection con) {
 		int cont = 0;
@@ -262,5 +302,6 @@ public class BD2 {
 		else
 			log.log(level, msg, excepcion);
 	}
+	
 
 }

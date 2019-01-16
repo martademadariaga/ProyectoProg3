@@ -9,12 +9,15 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.PasswordAuthentication;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Properties;
 
+import javax.mail.Session;
 import javax.swing.*;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.table.DefaultTableModel;
@@ -22,7 +25,6 @@ import javax.swing.table.DefaultTableModel;
 public class VentanaWeb extends JFrame {
 	public static ArrayList<Gafas> lista = new ArrayList<Gafas>();
 	public static DefaultListModel<ImageIcon> model = new DefaultListModel<ImageIcon>();
-	public static JList list= new JList();
 	public Container cp;
 	public static JLabel p1;
 	public static JLabel p2;
@@ -354,7 +356,7 @@ public class VentanaWeb extends JFrame {
 		// TODO 
 		//transicion(p1,p2,p3,webpan);
 
-		tablagaf.setBounds((int)redimx(0), (int)redimy(100),(int)redimx(900), webpan.getHeight());
+		tablagaf.setBounds((int)redimx(0), (int)redimy(100),(int)redimx(900), (int) (webpan.getHeight()-redimy(100)));
 
 
 		// panel de la lista del carrito
@@ -393,18 +395,33 @@ public class VentanaWeb extends JFrame {
 				// TODO Auto-generated method stub
 				
 				usuario=BD2.verpedidos(con, usuario);
+				String mensaje ="";
+				
 				
 				Iterator<String> it = usuario.pedidos.keySet().iterator();
 				while (it.hasNext()) {
 					String key = it.next();
 					
-					System.out.println(usuario.nick+" hizo un pedido el dia "+usuario.pedidos.get(key).fecha+" de "+usuario.pedidos.get(key).gafasCompr.size()+ " gafas:");
+					mensaje = mensaje + usuario.nick+" hizo un pedido el dia "+usuario.pedidos.get(key).fecha+" de "+usuario.pedidos.get(key).gafasCompr.size()+ " gafas:\n";
 					for (int i = 0; i <usuario.pedidos.get(key).gafasCompr.size(); i++) {
-						System.out.println(usuario.pedidos.get(key).gafasCompr.get(i).nombre);
+						mensaje = mensaje+ usuario.pedidos.get(key).gafasCompr.get(i).nombre+"\n";
 					}
 					
 					
 				}
+				
+				if(BD2.tieneEmail(con, usuario)) {
+					new MailSender(usuario.email,mensaje);
+					
+				}else {
+					String email = JOptionPane.showInputDialog( pedidos, "Introduce tu email:", "ENVIAR PEDIDOS", JOptionPane.QUESTION_MESSAGE );
+					usuario.email= email;
+					BD2.insertarEmail(con, usuario);
+					new MailSender(usuario.email,mensaje);
+					
+				}
+				
+				
 				
 			}
 			
@@ -428,6 +445,19 @@ public class VentanaWeb extends JFrame {
 			}
 			
 		});
+		
+		combo = new JComboBox<JLabel>();
+		combo.setBounds((int)redimx(590), (int)redimy(0),(int)redimx(310),(int)redimy(100));
+		webpan.add(combo);
+		
+		
+		combo.addItem(new JLabel(new ImageIcon("amarillo.jpg")));
+		combo.add(new JLabel(new ImageIcon("verde.jpg")));
+		combo.add(new JLabel(new ImageIcon("rosa.jpg")));
+		combo.add(new JLabel(new ImageIcon("rojo.jpg")));
+		combo.add(new JLabel(new ImageIcon("azul.jpg")));
+		combo.add(new JLabel(new ImageIcon("negro.jpg")));
+		
 
 	}
 
@@ -463,6 +493,7 @@ public class VentanaWeb extends JFrame {
 		listpan.setBackground(new Color(0,0,0,64));
 
 	}
+	
 	
 	
 	

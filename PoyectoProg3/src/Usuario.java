@@ -4,14 +4,14 @@ import java.util.HashMap;
 public class Usuario {
 	
 	protected String nick;
-	protected String contra;
+	protected String email;
 	protected String nTar;
 	protected HashMap<String, Pedido> pedidos;
 	
 	public Usuario(String nick, String email, String nTar, HashMap<String, Pedido> pedidos) {
 		super();
 		this.nick = nick;
-		this.contra = email;
+		this.email = email;
 		this.nTar = nTar;
 		this.pedidos = pedidos;
 	}
@@ -19,9 +19,9 @@ public class Usuario {
 
 	public Usuario() {
 		super();
-		this.nick = "null";
-		this.contra = "null";
-		this.nTar = "null";
+		this.nick = "";
+		this.email = "";
+		this.nTar = "";
 		this.pedidos =  new HashMap<String, Pedido>();
 	}
 	
@@ -41,12 +41,12 @@ public class Usuario {
 
 
 	public String getEmail() {
-		return contra;
+		return email;
 	}
 
 
 	public void setEmail(String email) {
-		this.contra = email;
+		this.email = email;
 	}
 
 
@@ -72,7 +72,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [nick=" + nick + ", email=" + contra + ", nTar=" + nTar + ", pedidos=" + pedidos + "]";
+		return "Usuario [nick=" + nick + ", email=" + email + ", nTar=" + nTar + ", pedidos=" + pedidos + "]";
 	}
 
 }
