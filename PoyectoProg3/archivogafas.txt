@@ -1,30 +1,30 @@
-gafas.png,1,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
+gafas.png,1,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas  para el dÃ­a a dÃ­a.
 gafas2.png,2,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas3.png,3,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas4.png,4,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas5.png,5,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas6.png,6,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas7.png,7,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas8.png,8,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas.png,9,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas2.png,10,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas3.png,11,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas4.png,12,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas5.png,13,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas6.png,14,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas7.png,15,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas8.png,16,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas.png,17,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas2.png,18,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas3.png,19,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas4.png,20,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas5.png,21,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas6.png,22,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas7.png,23,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas8.png,24,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas.png,25,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas2.png,26,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas3.png,27,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas4.png,28,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
-gafas5.png,29,Phoebe,negro,Ray-Ban,false,23,89.99,Las gafas Ray-Ban perfectas para el día a día.
-gafas6.png,30,Delilah,gris,Gucci,true,17,137.99,No te quedes este verano sin tus gafas favoritas...
+gafas3.png,3,Sophie,rojo,Armani,false,3,179.99,Sientete fabulosa con estas gafas de gama alta
+gafas4.png,4,Chloe,verde,Dior,true,47,121.99,Lucete este verano.
+gafas5.png,5,Jasmine,verde,Tchin-Tchin,false,22,49.99, Perfectas para clase
+gafas6.png,6,Aqua,azul,Gucci,true,7,131.99,Protegete del sol a la moda!
+gafas7.png,7,Barbie,rosa,Ray-Ban,true,24,94.99,Para las amantes del fucsia
+gafas8.png,8,PinkLady,rosa,Gucci,true,12,72.99,Vuelven los 80!
+gafas.png,9,Onyx,negro,Tchin-Tchin,false,29,39.99,Las gafas Tchin-Tchin perfectas  para el dÃ­a a dÃ­a.
+gafas2.png,10,Diana,gris,Dior,true,12,152.99,No te quedes este verano sin tus gafas favoritas...
+gafas3.png,11,Ruby,rojo,Ray-Ban,false,34,109.99,Sientete fabulosa con estas gafas de gama alta
+gafas4.png,12,Jade,verde,Armani,true,42,197.99,Lucete este verano.
+gafas5.png,13,Sasha,verde,Lacoste,false,2,41.99, Perfectas para clase
+gafas6.png,14,Anastasia,azul,Channel,true,76,191.99,Protegete del sol a la moda!
+gafas7.png,15,Rose,rosa,Dior,true,94,224.99,Para las amantes del fucsia
+gafas8.png,16,Sabrina,rosa,Armani,true,123,365.99,Vuelven los 80!
+gafas.png,17,Alexis,negro,Lacoste,false,87,169.99,Las gafas Ray-Ban perfectas  para el dÃ­a a dÃ­a.
+gafas2.png,18,Stephanie,gris,Dior,true,174,197.99,No te quedes este verano sin tus gafas favoritas...
+gafas3.png,19,Sarah,rojo,Gucci,false,39,181.99,Sientete fabulosa con estas gafas de gama alta
+gafas4.png,20,Charlotte,verde,Tchin-Tchin,true,107,104.99,Lucete este verano.
+gafas5.png,21,Esmeralda,verde,Ray-Ban,false,20,70.99, Perfectas para clase
+gafas6.png,22,Lilly,azul,Lacoste,true,75,140.99,Protegete del sol a la moda!
+gafas7.png,23,Barbara,rosa,Armani,true,241,120.99,Para las amantes del fucsia
+gafas8.png,24,Pamela,rosa,Gucci,true,12,72.99,Vuelven los 80!
+gafas.png,25,Lydia,negro,Dior,false,33,87.99,Las gafas Ray-Ban perfectas  para el dÃ­a a dÃ­a.
+gafas2.png,26,Martha,gris,Ray-Ban,true,47,70.99,No te quedes este verano sin tus gafas favoritas...
+gafas3.png,27,Samantha,rojo,Channel,false,38,190.99,Sientete fabulosa con estas gafas de gama alta
+gafas4.png,28,Emma,verde,Tchin-Tchin,true,50,52.99,Lucete este verano.
+gafas5.png,29,Melissa,verde,Armani,false,92,69.99, Perfectas para clase
+gafas6.png,30,Amatist,azul,Dior,true,70,138.99,Protegete del sol a la moda!
