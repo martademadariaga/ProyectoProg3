@@ -11,17 +11,23 @@ public class TableIcon extends JPanel
 	public TableIcon()
     {
         
-    	GestionTienda.crearGafas("archivogafas.txt");
         String[] columnNames = {"", "",""};
-        Object[][] data= new Object[10][3];
+        int n;
+        if(GestionTienda.gafasDisp.size()%3==0) {
+        	n=GestionTienda.gafasDisp.size()/3;
+        }else {
+        	n=GestionTienda.gafasDisp.size()/3+1;
+        }
+        Object[][] data= new Object[n][3];
         int cont = 0;
-        for (int i = 0; i <10; i++) {
+        for (int i = 0; i <n; i++) {
 			for (int j = 0; j < 3; j++) {
 				// JLabel prueba = new JLabel(new ImageIcon("gafas.png"));
-				Icon foto = VentanaWeb.resize(GestionTienda.fotosgafas.get(cont),(int)VentanaWeb.redimx(200),(int)VentanaWeb.redimy(100));
-				
+				//Icon foto = VentanaWeb.resize(GestionTienda.fotosgafas.get(cont),(int)VentanaWeb.redimx(200),(int)VentanaWeb.redimy(100));
+				if(cont<GestionTienda.gafasDisp.size()) {
+				Icon foto = VentanaWeb.resize(GestionTienda.gafasDisp.get(cont).label.nombreImagenObjeto,(int)VentanaWeb.redimx(200),(int)VentanaWeb.redimy(100));
 				data[i][j]=foto;
-				
+				}
 				cont++;
 			}
 		}
@@ -63,8 +69,6 @@ public class TableIcon extends JPanel
 		table.setCellSelectionEnabled(false);
 		//table.setCellSelectionEnabled(true);
 		table.setGridColor(Color.BLACK);
-		
-		
         JScrollPane scrollPane = new JScrollPane(table);
         this.add(scrollPane);
       
@@ -76,4 +80,3 @@ public class TableIcon extends JPanel
 
    
 }
-
