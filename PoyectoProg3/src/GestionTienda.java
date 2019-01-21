@@ -13,6 +13,7 @@ public class GestionTienda {
 	public static ArrayList<Gafas> gafasDisp = new ArrayList<Gafas>();
 	public static ArrayList<Gafas> gafasTienda = new ArrayList<Gafas>();
 	public static ArrayList<String> fotosgafas = new ArrayList<String>();
+
 	
 	public static void crearGafas(String s) {
 		int contador = 0;
@@ -38,7 +39,11 @@ public class GestionTienda {
 
 			}
 		gafasDisp=gafasTienda;
+		
+	  
 
+
+		
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,14 +54,10 @@ public class GestionTienda {
 
 	}
 
-//	public static void main(String[] args) {
-//		
-//		crearGafas("archivogafas.txt");
-//		for (Gafas gafa : gafasDisp) {
-//			System.out.println(	gafa.toString());
-//		
-//		}
-//		
-//		
-//	}
+	public static void main(String[] args) {
+		crearGafas("archivogafas.txt");
+		System.out.println(gafasTienda.size());
+		
+		
+	}
 }
