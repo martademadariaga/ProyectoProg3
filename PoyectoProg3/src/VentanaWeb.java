@@ -444,10 +444,43 @@ public class VentanaWeb extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Pedido pedido = new Pedido(lista,usuario.nick);
 				// TODO Auto-generated method stub
+				if(!lista.isEmpty()) {
 				BD2.insertarpedido(con, pedido, pedido.nick);
-				lista.clear();
-				actualizarlista();
 				
+				 Object[] opciones = {"Si", "No",};
+			        int x = JOptionPane.showOptionDialog(null, "Desea recibir su factura por correo?",
+			                "Compra realizada correctamente",
+			                JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, opciones, opciones[0]);
+			       if(x==0) {
+			    	   
+			    	   String mensaje ="Usted ha realizado hoy un pedido de "+lista.size()+" gafas:\n";
+			    	   double total=0;
+			    	   for (Gafas gafa : lista) {
+						mensaje = mensaje+ gafa.nombre+"  "+ gafa.precio+"euros\n";
+						total = total+ gafa.precio;
+			    		   
+					}
+			    	   mensaje = mensaje+"Total = "+ total+"euros.";
+					
+						
+						if(BD2.tieneEmail(con, usuario)&& usuario.email.length()>4) {
+							new MailSender(webpan, usuario.email,mensaje);
+							
+						}else {
+							String email = JOptionPane.showInputDialog( pedidos, "Introduce tu email:", "ENVIAR FACTURA", JOptionPane.QUESTION_MESSAGE );
+							usuario.email= email;
+							BD2.insertarEmail(con, usuario);
+							new MailSender(webpan, usuario.email,mensaje);
+							
+						}
+			       }
+			    lista.clear();
+				actualizarlista();
+					
+
+				}else {
+					JOptionPane.showMessageDialog(webpan, "no hay productos seleccionados");
+				}
 			}
 			
 		});
