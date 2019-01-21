@@ -132,7 +132,7 @@ public class BD2 {
 				 ResultSet rs =statement.executeQuery("select email from usuario WHERE nick ='"+usuario.nick+"'");
 
 		        while (rs.next()) {
-		        if(!rs.getString("email").equals("")) {
+		        if(!(rs.getString("email")== null)) {
 		        tiene = true;
 		        usuario.email = rs.getString("email");
 		        }

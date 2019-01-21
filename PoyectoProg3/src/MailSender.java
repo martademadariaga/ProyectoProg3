@@ -8,6 +8,8 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class MailSender {
 	
@@ -21,7 +23,7 @@ public class MailSender {
 	private Properties props;
 
 	
-	public MailSender(String dest, String mens) {
+	public MailSender(JPanel panel, String dest, String mens) {
 		to = dest;
 		props = new Properties();
 		props.put("mail.smtp.user", from);
@@ -44,8 +46,10 @@ public class MailSender {
 			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 			Transport.send(msg);
 			System.out.println("Message sent to: " + to);
+			JOptionPane.showMessageDialog(panel, "Mensaje enviado correctamente");
 		} catch (Exception ex) {
 			System.err.println("Error sending message: " + ex);
+			JOptionPane.showMessageDialog(panel, "No se ha podido enviar el mensaje");
 		}
 		
 	}
